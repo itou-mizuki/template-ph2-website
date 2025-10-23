@@ -1,4 +1,4 @@
-version: '3.8'
+
 # 各コンテナの設定
 services:
   # phpサーバー
@@ -31,7 +31,8 @@ services:
     ports:
       - 3306:3306
     volumes: # mysqlのテーブルやらなんやらを保存する
-      - ./docker/mysql/db:/var/lib/mysql
+      # - ./docker/mysql/db:/var/lib/mysql
+      - mysql-data:/var/lib/mysql
       - ./docker/mysql:/docker-entrypoint-initdb.d
   # PHPMyAdminサーバー
   phpmyadmin: # デフォルトのままで不都合ないのでDockerHubにあるイメージをそのまま使う
